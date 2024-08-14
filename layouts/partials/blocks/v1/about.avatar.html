@@ -10,7 +10,7 @@
 {{ if .author }}
   {{ $author = .author }}
 {{ else }}
-  {{ $author = $block.content.username }}
+  {{ $author = $block.Params.author }}
 {{end}}
 
 {{ $person_page_path := (printf "/authors/%s" $author) }}
@@ -26,7 +26,7 @@
 
   {{ if $avatar }}
   <div class="avatar-wrapper">
-    {{ $avatar_image := $avatar.Fill "720x720 Center" }}
+    {{ $avatar_image := $avatar.Fill "1080x1080 Center" }}
     <img class="avatar {{if eq $avatar_shape "square"}}avatar-square{{else}}avatar-circle{{end}}" src="{{ $avatar_image.RelPermalink }}" alt="{{$person_page.Title}}"
          width="{{ $avatar_image.Width }}" height="{{ $avatar_image.Height }}">
     {{with $person.status.icon}}<span class="avatar-emoji">{{.|emojify}}</span>{{end}}
@@ -82,11 +82,9 @@
     {{ end }}
   </ul>
 
-  {{ with ($block.content.text | emojify | $page.RenderString) | default $person_page.Content }}
-  <div class="article-style pt-2 d-flex justify-content-center">
-    <div class="bio-text">
-      {{ . }}
-    </div>
+  {{ with $block.Content }}
+  <div class="article-style pt-1">
+    {{ . }}
   </div>
   {{ end }}
 

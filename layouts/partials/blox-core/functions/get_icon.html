@@ -1,0 +1,7 @@
+{{/* Function to get website icon image. */}}
+{{/* Input: size (int) */}}
+{{/* Output: resource (obj) */}}
+
+{{ $icon := resources.GetMatch "media/icon.png" }}
+{{ $icon_resized := $icon.Fill (printf "1080x1080 Center") }}
+{{ return $icon_resized }}
