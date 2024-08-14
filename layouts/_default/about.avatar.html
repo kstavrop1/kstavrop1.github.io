@@ -1,0 +1,10 @@
+<div id="profile">
+
+    {{ if $avatar }}
+    <div class="avatar-wrapper" style="width: 400px; height: 400px;">
+    {{ $avatar_image := $avatar.Fill "2892x2892 Center" }}
+    <img class="avatar {{if eq $avatar_shape "square"}}avatar-square{{else}}avatar-circle{{end}}" src="{{ $avatar_image.RelPermalink }}" alt="{{$person_page.Title}}"
+    style="width: 400px; height: 400px;">
+    {{with $person.status.icon}}{{.|emojify}}{{end}}
+    </div>
+    {{ end }}
