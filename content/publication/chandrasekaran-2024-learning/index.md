@@ -9,7 +9,7 @@ authors:
 - admin
 - Kevin Tian
 publication_types:
-- 'atricle'
+- 'article'
 abstract: ''
 featured: false
 publication: 'NeurIPS 2024, to appear'
