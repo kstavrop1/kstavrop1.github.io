@@ -15,7 +15,7 @@ abstract: 'A fundamental notion of distance between train and test distributions
 
 Our approach generalizes and improves all prior work on TDS learning: (1) we obtain universal learners that succeed simultaneously for large classes of test distributions, (2) achieve near-optimal error rates, and (3) give exponential improvements for constant depth circuits. Our methods further extend to semi-parametric settings and imply the first positive results for low-dimensional convex sets. Additionally, we separate learning and testing phases and obtain algorithms that run in fully polynomial time at test time.'
 featured: false
-publication: '*arXiv preprint arXiv:2406.09373*'
+publication: 'NeurIPS 2024, to appear'
 url_pdf: https://arxiv.org/pdf/2406.09373
 links:
 - name: URL

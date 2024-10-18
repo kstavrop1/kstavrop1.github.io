@@ -14,7 +14,7 @@ abstract: 'We study the problem of learning under arbitrary distribution shift, 
 
 We address both these challenges for natural function classes, including intersections of halfspaces and decision trees, and standard training distributions, including Gaussians. For PQ learning, we give efficient learning algorithms, while for TDS learning, our algorithms can tolerate moderate amounts of distribution shift. At the core of our approach is an improved analysis of spectral outlier-removal techniques from learning with nasty noise. Our analysis can (1) handle arbitrarily large fraction of outliers, which is crucial for handling arbitrary distribution shifts, and (2) obtain stronger bounds on polynomial moments of the distribution after outlier removal, yielding new insights into polynomial regression under distribution shifts. Lastly, our techniques lead to novel results for tolerant testable learning [RV23], and learning with nasty noise.'
 featured: false
-publication: '*arXiv preprint arXiv:2406.02742*'
+publication: 'NeurIPS 2024, to appear'
 url_pdf: https://arxiv.org/pdf/2406.02742
 links:
 - name: URL

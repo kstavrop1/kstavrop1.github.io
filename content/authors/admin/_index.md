@@ -123,7 +123,7 @@ I am currently a fourth-year Ph.D. student in Computer Science at [UT Austin](ht
 
 My research is in the intersection of machine learning and theoretical computer science. I am particularly interested in designing efficient learning algorithms with provable guarantees that do not rely on the strong assumptions typically made in learning theory, especially in challenging scenarios like learning with distribution shift and/or noise.
 
-My CV can be found <a href="uploads/resume.pdf" target="_blank">here</a> (last update: August 2024).
+My CV can be found <a href="uploads/resume.pdf" target="_blank">here</a> (last update: October 2024).
 
 <span style="font-size:22px;"><i class="fa-solid fa-envelope"></i></span>&nbsp;&nbsp;&nbsp; [kstavrop@utexas.edu](mailto:kstavrop@utexas.edu) 
 
