@@ -89,7 +89,7 @@ sections:
     id: conference-publications
     content:
       count: 0
-      title: <span style="font-size:24px;">Conference Publications</span> <span style="font-size:22px;">(alphabetical author order)</span>
+      title: <span style="font-size:24px;">Publications</span> <br><span style="font-size:22px;">(alphabetical author order)</span>
       # text: |-
       #   {{% callout note %}}
       #   Quickly discover relevant content by [filtering publications](./publication/).
@@ -162,6 +162,10 @@ sections:
       title: <span style="font-size:24px;">Awards and Achievements</span>
       subtitle: ''
       text: '
+      <span style="font-size:20px;"><i class="fa-solid fa-graduation-cap"></i></span>&nbsp;&nbsp;<span style="font-size:20px;">**2025 Apple Scholars in AI/ML PhD fellowship**</span> <br> <div style="font-size:13px;line-height: 1.6;"> Selected as an [Apple Scholar in AI/ML](https://machinelearning.apple.com/updates/apple-scholars-aiml-2025).<div style="font-size:13px;color:grey;line-height: 2.6;"> 2025</div></div>
+
+      <br><br>
+
       <span style="font-size:22px;">&nbsp;<i class="fa-solid fa-award"></i></span>&nbsp;&nbsp;<span style="font-size:20px;">**Best paper award at Conference on Learning Theory (COLT) 2024**</span> <br> <div style="font-size:13px;">Our paper on *Smoothed Analysis for Learning Concepts with Low Intrinsic Dimension* won the best paper award at COLT.<div style="font-size:13px;color:grey;line-height: 2.0;">Jun 2024</div></div>
 
       <br><br>
@@ -185,11 +189,11 @@ sections:
     content:
       title: <span style="font-size:24px;">Reviewing</span>
       subtitle: ''
-      text: '<div align="center"><span style="font-size:24px;"><span style="font-size:18px;">ICLR 2024, ICML 2024, NeurIPS 2023</span></span></div>'
+      text: '<span style="font-size:26px;"><span style="font-size:18px;">COLT 2025, ICLR 2024, ICML 2024, NeurIPS 2023</span></span>'
     design:
       # Choose a layout view
       view: compact
-      columns: '1'
+      columns: '2'
   # - block: collection
   #   id: awards2
   #   content:

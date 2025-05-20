@@ -31,7 +31,7 @@ abstract: '  Recent work of Klivans, Stavropoulos, and Vasilyan initiated the st
   reduction and coverings to give efficient algorithms for computing a localized version
   of discrepancy distance, a key metric from the domain adaptation literature.'
 featured: true
-publication: '*Proceedings of Thirty Seventh Conference on Learning Theory*'
+publication: '**COLT 2024**'
 url_pdf: https://proceedings.mlr.press/v247/klivans24b/klivans24b.pdf
 links:
 - name: URL

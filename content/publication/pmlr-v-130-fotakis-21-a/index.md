@@ -1,5 +1,5 @@
 ---
-title: ' Aggregating Incomplete and Noisy Rankings '
+title: 'Aggregating Incomplete and Noisy Rankings'
 date: '2021-01-01'
 draft: false
 publishDate: '2024-08-12T19:48:58.682241Z'
@@ -22,8 +22,7 @@ abstract: ' We consider the problem of learning the true ordering of a set of al
   how to efficiently compute the maximum likelihood complete ranking from selective
   Mallows rankings. '
 featured: true
-publication: '*Proceedings of The 24th International Conference on Artificial Intelligence
-  and Statistics*'
+publication: '**AISTATS 2021**'
 url_pdf: http://proceedings.mlr.press/v130/fotakis21a/fotakis21a.pdf
 links:
 - name: URL

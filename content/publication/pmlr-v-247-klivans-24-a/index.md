@@ -37,7 +37,7 @@ abstract: '  We revisit the fundamental problem of learning with distribution sh
   factors, as well as a separation showing that realizable learning in our model is
   incomparable to (ordinary) agnostic learning.'
 featured: true
-publication: '*Proceedings of Thirty Seventh Conference on Learning Theory*'
+publication: '**COLT 2024**'
 url_pdf: https://proceedings.mlr.press/v247/klivans24a/klivans24a.pdf
 links:
 - name: URL
