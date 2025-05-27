@@ -162,7 +162,7 @@ sections:
       title: <span style="font-size:24px;">Awards and Achievements</span>
       subtitle: ''
       text: '
-      <span style="font-size:20px;"><i class="fa-solid fa-graduation-cap"></i></span>&nbsp;&nbsp;<span style="font-size:20px;">**2025 Apple Scholars in AI/ML PhD fellowship**</span> <br> <div style="font-size:13px;line-height: 1.6;"> Selected as an [Apple Scholar in AI/ML](https://machinelearning.apple.com/updates/apple-scholars-aiml-2025).<div style="font-size:13px;color:grey;line-height: 2.6;"> 2025</div></div>
+      <span style="font-size:20px;"><i class="fa-solid fa-graduation-cap"></i></span>&nbsp;&nbsp;<span style="font-size:20px;">**2025 Apple Scholars in AI/ML PhD fellowship**</span> <br> <div style="font-size:13px;line-height: 1.6;"> I was selected as an [Apple Scholar in AI/ML](https://machinelearning.apple.com/updates/apple-scholars-aiml-2025).<div style="font-size:13px;color:grey;line-height: 2.6;"> 2025</div></div>
 
       <br><br>
 
@@ -270,7 +270,7 @@ sections:
   # - block: collection
   #   id: talks
   #   content:
-  #     title: Recent & Upcoming Talks
+  #     title: <span style="font-size:24px;">Recent & Upcoming Talks</span>
   #     filters:
   #       folders:
   #         - event
