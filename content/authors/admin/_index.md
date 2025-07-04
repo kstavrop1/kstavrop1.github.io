@@ -119,7 +119,11 @@ social:
 highlight_name: true
 ---
 
-I am currently a fourth-year Ph.D. student in Computer Science at [UT Austin](https://www.utexas.edu/). I am fortunate to be advised by [Prof. Adam Klivans](https://www.cs.utexas.edu/~klivans/). Before that, I studied Electrical and Computer Engineering at the [National Technical University of Athens](https://www.ntua.gr/en/), where I was fortunate to work with [Prof. Dimitris Fotakis](http://www.softlab.ntua.gr/~fotakis/).
+I am currently a fourth-year Ph.D. student in Computer Science at [UT Austin](https://www.utexas.edu/). I am fortunate to be advised by [Prof. Adam Klivans](https://www.cs.utexas.edu/~klivans/). Before that, I studied Electrical and Computer Engineering at the [National Technical University of Athens](https://www.ntua.gr/en/), where I was fortunate to work with [Prof. Dimitris Fotakis](http://www.softlab.ntua.gr/~fotakis/). I am grateful to be supported by the [2025 Apple Scholars in AI/ML Fellowship](https://machinelearning.apple.com/updates/apple-scholars-aiml-2025).
+
+**I expect to complete my PhD during the 2025–2026 academic year and am actively looking for postdoctoral opportunities starting Fall 2026.**
+
+**Summer 2025**: I am in the Bay Area for a research internship at [Apple MLR](https://machinelearning.apple.com), working with [Parikshit Gopalan](https://parikg.github.io).
 
 My research is in the intersection of machine learning and theoretical computer science. I am particularly interested in designing efficient learning algorithms with provable guarantees that do not rely on the strong assumptions typically made in learning theory, especially in challenging scenarios like learning with distribution shift and/or noise.
 
