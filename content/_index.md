@@ -184,16 +184,16 @@ sections:
       # Choose a layout view
       view: compact
       columns: '2'
-  - block: markdown
-    id: reviewing
-    content:
-      title: <span style="font-size:24px;">Reviewing</span>
-      subtitle: ''
-      text: '<span style="font-size:26px;"><span style="font-size:18px;">COLT 2025, ICLR 2024, ICML 2024, NeurIPS 2023</span></span>'
-    design:
-      # Choose a layout view
-      view: compact
-      columns: '2'
+  # - block: markdown
+  #   id: reviewing
+  #   content:
+  #     title: <span style="font-size:24px;">Reviewing</span>
+  #     subtitle: ''
+  #     text: '<span style="font-size:26px;"><span style="font-size:18px;">COLT 2025, ICLR 2024, ICML 2024, NeurIPS 2023</span></span>'
+  #   design:
+  #     # Choose a layout view
+  #     view: compact
+  #     columns: '2'
   # - block: collection
   #   id: awards2
   #   content:

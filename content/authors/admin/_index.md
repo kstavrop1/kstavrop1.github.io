@@ -125,9 +125,9 @@ I am currently a fourth-year Ph.D. student in Computer Science at [UT Austin](ht
 
 **Summer 2025**: I am in the Bay Area for a research internship at [Apple MLR](https://machinelearning.apple.com), working with [Parikshit Gopalan](https://parikg.github.io).
 
-My research is in the intersection of machine learning and theoretical computer science. I am particularly interested in designing efficient learning algorithms with provable guarantees that do not rely on the strong assumptions typically made in learning theory, especially in challenging scenarios like learning with distribution shift and/or noise.
+My research is in the intersection of machine learning and theoretical computer science. I am particularly interested in designing efficient learning algorithms with provable guarantees that do not rely on the strong assumptions typically made in learning theory, especially in challenging scenarios like learning under distribution shift or data contamination.
 
-My CV can be found <a href="uploads/resume.pdf" target="_blank">here</a> (last update: May 2025).
+My CV can be found <a href="uploads/resume.pdf" target="_blank">here</a> (last update: August 2025).
 
 <span style="font-size:22px;"><i class="fa-solid fa-envelope"></i></span>&nbsp;&nbsp;&nbsp; [kstavrop@utexas.edu](mailto:kstavrop@utexas.edu) 
 
