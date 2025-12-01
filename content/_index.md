@@ -162,6 +162,10 @@ sections:
       title: <span style="font-size:24px;">Awards and Achievements</span>
       subtitle: ''
       text: '
+      <span style="font-size:22px;">&nbsp;<i class="fa-solid fa-award"></i></span>&nbsp;&nbsp;<span style="font-size:20px;">**Best paper award at Reliable ML Workshop @ NeurIPS 2025**</span> <br> <div style="font-size:13px;">Our paper on *Testing Noise Assumptions of Learning Algorithms* won the best paper award at the [Reliable ML Workshop @ NeurIPS 2025](https://reliablemlworkshop.github.io).<div style="font-size:13px;color:grey;line-height: 2.0;">Dec 2025</div></div>
+
+      <br><br>
+
       <span style="font-size:20px;"><i class="fa-solid fa-graduation-cap"></i></span>&nbsp;&nbsp;<span style="font-size:20px;">**2025 Apple Scholars in AI/ML PhD fellowship**</span> <br> <div style="font-size:13px;line-height: 1.6;"> I was selected as an [Apple Scholar in AI/ML](https://machinelearning.apple.com/updates/apple-scholars-aiml-2025).<div style="font-size:13px;color:grey;line-height: 2.6;"> 2025</div></div>
 
       <br><br>
