@@ -1,6 +1,6 @@
 ---
 title: 'Sparse Linear Regression is Easy on Random Supports'
-date: '2025-11-09'
+date: '2026-01-02'
 draft: false
 publishDate: ''
 authors:
@@ -16,8 +16,8 @@ Information-theoretically, we know what is best possible in terms of measurement
 We give the first generic positive result for worst-case design matrices $\bf{X}$: For any $\bf{X}$, we show that if the support of $\bf{w}^* $ is chosen at random, we can get prediction error $\epsilon$ with  $N = \mathrm{poly}(k, \log d, 1/\epsilon)$ samples and run-time $\mathrm{poly}(d,N)$. This run-time holds for any design matrix $\bf{X}$ with condition number up to $2^{\mathrm{poly}(d)}$. 
 
 Previously, such results were known for worst-case $\bf{w}^*$, but only for random design matrices from well-behaved families, matrices that have a very low condition number ($\mathrm{poly}(\log d)$; e.g., as studied in compressed sensing), or those with special structural properties. '
-featured: false
-publication: '*Under review*'
+featured: true
+publication: '**STOC 2026**'
 url_pdf: 'https://arxiv.org/pdf/2511.06211'
 links:
  - name: URL

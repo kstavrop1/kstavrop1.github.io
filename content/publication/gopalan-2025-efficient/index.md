@@ -1,6 +1,6 @@
 ---
 title: 'Efficient Calibration for Decision Making'
-date: '2025-11-17'
+date: '2026-01-01'
 draft: false
 publishDate: ''
 authors:
@@ -14,8 +14,8 @@ abstract: "A decision-theoretic characterization of perfect calibration is that 
 
 
 We suggest circumventing this by restricting attention to structured families of post-processing functions K. We define the calibration decision loss relative to $K$, denoted CDL$_K$ where we consider all proper losses but restrict post-processings to a structured family $K$. We develop a comprehensive theory of when CDL$_K$ is information-theoretically and computationally tractable, and use it to prove both upper and lower bounds for natural classes $K$. In addition to introducing new definitions and algorithmic techniques to the theory of calibration for decision making, our results give rigorous guarantees for some widely used recalibration procedures in machine learning."
-featured: false
-publication: '*Under review*'
+featured: true
+publication: '**STOC 2026**'
 url_pdf: 'https://arxiv.org/pdf/2511.13699'
 links:
  - name: URL

@@ -1,6 +1,6 @@
 ---
 title: 'A Fully Polynomial-Time Algorithm for Robustly Learning Halfspaces over the Hypercube'
-date: '2025-11-10'
+date: '2026-01-03'
 draft: false
 publishDate: ''
 authors:
@@ -14,8 +14,8 @@ abstract: 'We give the first fully polynomial-time algorithm for learning halfsp
 
 
 Previous analyses rely heavily on various structural properties of continuous distributions such as anti-concentration. Our approach avoids these requirements and makes use of a new algorithm for learning Generalized Linear Models (GLMs) with only a polylogarithmic dependence on the Lipschitz constant of the activation. More generally, our framework shows that supervised learning with respect to discrete distributions is not as difficult as previously thought.'
-featured: false
-publication: '*Under review*'
+featured: true
+publication: '**STOC 2026**'
 url_pdf: 'https://arxiv.org/pdf/2511.07244'
 links:
  - name: URL
