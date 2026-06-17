@@ -1,7 +1,7 @@
 ---
-title: 'Learning Intersections of Halfspaces with Distribution Shift: Improved Algorithms
-  and SQ Lower Bounds'
+title: 'Learning Intersections of Halfspaces with Distribution Shift: Improved Algorithms and SQ Lower Bounds'
 date: '2024-06-29'
+rank: 15
 draft: false
 publishDate: '2024-08-12T19:48:58.022344Z'
 authors:
@@ -31,10 +31,11 @@ abstract: '  Recent work of Klivans, Stavropoulos, and Vasilyan initiated the st
   reduction and coverings to give efficient algorithms for computing a localized version
   of discrepancy distance, a key metric from the domain adaptation literature.'
 featured: true
-publication: '**COLT 2024**'
-url_pdf: https://proceedings.mlr.press/v247/klivans24b/klivans24b.pdf
+categories:
+- Learning with Distribution Shift
+publication: '*COLT 2024*'
 links:
 - name: URL
-  url: https://proceedings.mlr.press/v247/klivans24b.html
+  url: https://arxiv.org/abs/2404.02364
 ---
 

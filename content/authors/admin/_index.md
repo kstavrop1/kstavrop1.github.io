@@ -99,34 +99,17 @@ social:
   - icon: graduation-cap # Alternatively, use `google-scholar` icon from `ai` icon pack
     icon_pack: fas
     link: https://scholar.google.com/citations?user=Lsq-N_wAAAAJ&hl=en
-  # - icon: github
-  #   icon_pack: fab
-  #   link: https://github.com/gcushen
-  # - icon: linkedin
-  #   icon_pack: fab
-  #   link: https://www.linkedin.com/
-  # Link to a PDF of your resume/CV.
-  # To use: copy your resume to `static/uploads/resume.pdf`, enable `ai` icons in `params.yaml`,
-  # and uncomment the lines below.
   - icon: dblp
     icon_pack: ai
     link: https://dblp.org/pid/277/9209.html
-  # - icon: cv
-  #   icon_pack: ai
-  #   link: uploads/resume.pdf
 
 # Highlight the author in author lists? (true/false)
 highlight_name: true
 ---
 
-I am a final-year Ph.D. candidate in Computer Science at [UT Austin](https://www.utexas.edu/). I am fortunate to be advised by [Prof. Adam Klivans](https://www.cs.utexas.edu/~klivans/). Before that, I studied Electrical and Computer Engineering at the [National Technical University of Athens](https://www.ntua.gr/en/), where I worked with [Prof. Dimitris Fotakis](http://www.softlab.ntua.gr/~fotakis/). I am grateful to be supported by the [2025 Apple Scholars in AI/ML Fellowship](https://machinelearning.apple.com/updates/apple-scholars-aiml-2025). In summer 2025, I was a research intern at [Apple MLR](https://machinelearning.apple.com), working with [Parikshit Gopalan](https://parikg.github.io).
+I am a final-year Ph.D. candidate in Computer Science at [UT Austin](https://www.utexas.edu/). I am fortunate to be advised by [Prof. Adam Klivans](https://www.cs.utexas.edu/~klivans/). Before that, I studied Electrical and Computer Engineering at the [National Technical University of Athens](https://www.ntua.gr/en/), where I worked with [Prof. Dimitris Fotakis](http://www.softlab.ntua.gr/~fotakis/). I am grateful to be supported by the [2025 Apple Scholars in AI/ML Fellowship](https://machinelearning.apple.com/updates/apple-scholars-aiml-2025). In summer 2025, I was a research intern at [Apple MLR](https://machinelearning.apple.com), working with [Parikshit Gopalan](https://parikg.github.io) and [Kunal Talwar](http://kunaltalwar.org).
 
-**In Fall 2026, I will join the School of Mathematics at the [Institute for Advanced Study](https://www.ias.edu/) as a Postdoctoral Member.**
+My research focuses on the computational foundations of reliability in machine learning. I am particularly interested in designing efficient learning algorithms with provable guarantees that do not rely on strong distributional or modeling assumptions, especially in challenging scenarios like learning under distribution shift or data contamination.
 
-
-My research is in the intersection of machine learning and theoretical computer science. I am particularly interested in designing efficient learning algorithms with provable guarantees that do not rely on the strong assumptions typically made in learning theory, especially in challenging scenarios like learning under distribution shift or data contamination.
-
-My CV can be found <a href="uploads/resume.pdf" target="_blank">here</a> (last update: February 2026).
-
-<span style="font-size:22px;"><i class="fa-solid fa-envelope"></i></span>&nbsp;&nbsp;&nbsp; [kstavrop@utexas.edu](mailto:kstavrop@utexas.edu) 
+<a class="cv-button" href="uploads/resume.pdf" target="_blank" rel="noopener">Download CV</a> &nbsp; <a class="cv-button cv-button-ghost" href="mailto:kstavrop@utexas.edu">Email me</a>
 

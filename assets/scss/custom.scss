@@ -1,0 +1,532 @@
+/*======================================================================
+  Custom styles — polished & minimal academic look
+  Auto-imported by the Hugo Blox theme. Preview with `hugo server`.
+======================================================================*/
+
+/*======================================================================
+  COLOR THEME
+  Active palette: "Warm" (cream + orange, matching the CDL talk).
+
+  TO REVERT to the original "Blue" palette:
+    1) comment out the WARM block below (wrap it in / *  * /), and
+    2) uncomment the BLUE block.
+  Only one of the two blocks should be active at a time.
+======================================================================*/
+
+/* ---- WARM palette (active) --------------------------------------- */
+:root {
+  --accent: #bf5700;           /* UT burnt orange */
+  --accent-border: rgba(191, 87, 0, 0.32);
+  --accent-soft: rgba(191, 87, 0, 0.09);
+  --text: #2a2620;
+  --muted: #7a6f5f;
+  --rule: rgba(60, 45, 20, 0.12);
+  --card-bg: #ffffff;
+  --card-border: rgba(60, 45, 20, 0.14);
+  --award: #9a5a00;            /* distinction badge */
+  --award-soft: rgba(191, 87, 0, 0.14);
+  --sec-bg-odd: #fdf8ee;       /* section background A (cream) */
+  --sec-bg-even: #f6ecd8;      /* section background B (deeper cream) */
+}
+.dark {
+  --accent: #ec8b4e;           /* lighter burnt orange for dark bg */
+  --accent-border: rgba(236, 139, 78, 0.38);
+  --accent-soft: rgba(236, 139, 78, 0.12);
+  --text: #ece3d6;
+  --muted: #a99f8f;
+  --rule: rgba(255, 255, 255, 0.12);
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --card-border: rgba(255, 255, 255, 0.14);
+  --award: #f2c078;
+  --award-soft: rgba(242, 192, 120, 0.14);
+  --sec-bg-odd: #1d2127;       /* dark theme keeps sections uniform */
+  --sec-bg-even: #1d2127;
+}
+
+/* ---- BLUE palette (original) — uncomment to use ------------------- */
+/*
+:root {
+  --accent: #1f6feb;
+  --accent-border: rgba(31, 111, 235, 0.30);
+  --accent-soft: rgba(31, 111, 235, 0.07);
+  --text: #1f2328;
+  --muted: #5b6470;
+  --rule: rgba(0, 0, 0, 0.08);
+  --card-bg: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.10);
+  --award: #8a6100;
+  --award-soft: rgba(212, 167, 44, 0.16);
+  --sec-bg-odd: #ffffff;
+  --sec-bg-even: #f7f7f7;
+}
+.dark {
+  --accent: #6ea8fe;
+  --accent-border: rgba(110, 168, 254, 0.35);
+  --accent-soft: rgba(110, 168, 254, 0.10);
+  --text: #e6edf3;
+  --muted: #9aa4b2;
+  --rule: rgba(255, 255, 255, 0.12);
+  --card-bg: rgba(255, 255, 255, 0.035);
+  --card-border: rgba(255, 255, 255, 0.14);
+  --award: #e3b341;
+  --award-soft: rgba(227, 179, 65, 0.14);
+  --sec-bg-odd: #1d2127;
+  --sec-bg-even: #1d2127;
+}
+*/
+
+/* ---- Global typography & rhythm ---------------------------------- */
+body { line-height: 1.65; }
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover { text-decoration: underline; text-underline-offset: 2px; }
+a:not(.btn):hover,
+a:not(.btn):focus { color: var(--accent); }
+
+/* The theme forces links to blue in dark mode — keep them on the accent. */
+.dark a,
+.dark a:not(.btn):hover,
+.dark a:not(.btn):focus { color: var(--accent); }
+
+/* Navbar: the theme uses blue (#2962ff) for the active link and brand hover.
+   Use the accent instead, in both light and dark modes. */
+.navbar .navbar-nav .nav-link.active,
+.dark .navbar .navbar-nav .nav-link.active {
+  color: var(--accent) !important;
+}
+/* In dark mode the navbar stays `.navbar-light`, so its links keep the dark
+   slate (#34495e) color and look dim-blue. Make non-active links light. */
+.dark .navbar .navbar-nav .nav-link { color: rgba(255, 255, 255, 0.82) !important; }
+.dark .navbar .navbar-nav .nav-link:hover,
+.dark .navbar .navbar-nav .nav-link:focus { color: #ffffff !important; }
+.dark .navbar .navbar-nav .nav-link.active { color: var(--accent) !important; }
+
+/* Day/night (moon/sun) toggle + its dropdown menu — theme turns these blue
+   on press/open and in dark mode; keep everything on the accent instead. */
+.navbar .navbar-nav .nav-link.show,
+.navbar .navbar-nav .show > .nav-link,
+.navbar .navbar-nav .nav-link:active,
+.dark .navbar .navbar-nav .nav-link.show,
+.dark .navbar .navbar-nav .show > .nav-link { color: var(--accent) !important; }
+
+.dropdown-item-active { color: var(--accent) !important; }
+.dropdown-item:active { background-color: var(--accent) !important; color: #fff !important; }
+.dropdown-item:hover,
+.dropdown-item:focus { background-color: var(--accent-soft) !important; color: var(--text) !important; }
+.dark .dropdown-item { color: rgba(255, 255, 255, 0.82) !important; }
+.dark .dropdown-item:hover,
+.dark .dropdown-item:focus { background-color: var(--accent-soft) !important; color: #ffffff !important; }
+.dark .dropdown-item-active { color: var(--accent) !important; }
+.navbar-light .navbar-brand:hover,
+.navbar-light .navbar-brand:focus,
+.navbar-light .navbar-text a,
+.navbar-light .navbar-text a:hover,
+.navbar-light .navbar-text a:focus { color: var(--accent) !important; }
+
+.home-section {
+  padding-top: 2.75rem;
+  padding-bottom: 2.75rem;
+}
+
+/* Collapse a section whose content row is empty — e.g. a Talks/Service
+   section turned off with `enable: false` — so it leaves no blank gap. */
+.home-section:has(> .container > .row:not(:has(*))) { display: none; }
+
+/* Alternating section backgrounds, applied by JS to the VISIBLE sections only
+   (overrides the theme's :nth-of-type striping, which counts hidden sections). */
+.home-section.sec-odd  { background: var(--sec-bg-odd) !important; }
+.home-section.sec-even { background: var(--sec-bg-even) !important; }
+/* Footer inherits the last section's parity (set by the stripe script) so it
+   blends in and follows light/dark mode. */
+.page-footer.sec-odd  { background: var(--sec-bg-odd); }
+.page-footer.sec-even { background: var(--sec-bg-even); }
+
+/* Clean section headings — no colored bars. */
+.section-heading h1 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.section-heading h1 span { font-weight: 700; }
+.section-heading p { color: var(--muted); }
+
+/* ---- Publications browser (Selected / All toggle) --------------- */
+.pub-note {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.pub-toggle {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  margin-bottom: 1.3rem;
+  background: var(--accent-soft);
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+}
+.pub-tab {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 0.32rem 1.15rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.pub-tab:hover { color: var(--text); }
+.pub-tab.is-active {
+  background: var(--accent);
+  color: #fff;
+}
+.pub-view.is-hidden { display: none; }
+.pub-area {
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 1.6rem 0 0.75rem;
+  color: var(--text);
+}
+.pub-view > .pub-area:first-child { margin-top: 0; }
+.pub-cat .pub-area { margin-bottom: 0.35rem; }
+
+/* Collapsible category: description + a foldable list of papers. */
+.pub-cat { margin-bottom: 1.6rem; }
+.pub-cat-desc {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0 0 0.6rem;
+  max-width: 60ch;
+}
+.pub-cat-details > .pub-cards { margin-top: 0.7rem; }
+.pub-cat-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  list-style: none;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  user-select: none;
+  width: fit-content;
+}
+.pub-cat-toggle::-webkit-details-marker { display: none; }
+.pub-cat-toggle::before {
+  content: "\25B8";              /* ▸ */
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+.pub-cat-details[open] > .pub-cat-toggle::before { transform: rotate(90deg); }
+
+/* ---- Publication cards ------------------------------------------- */
+.pub-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.pub-card {
+  position: relative;
+  padding: 0.95rem 1.15rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  transition: box-shadow 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+}
+.pub-card:hover {
+  border-color: var(--accent-border);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.07);
+  transform: translateY(-2px);
+}
+
+.pub-card .pub-authors {
+  font-size: 0.84rem;
+  color: var(--muted);
+  margin-bottom: 0.18rem;
+}
+.pub-card .pub-me {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.pub-card .pub-title {
+  font-size: 1.03rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 0.05rem 0 0.32rem;
+}
+.pub-card .pub-title a { color: var(--text); }
+.pub-card .pub-title a:hover { color: var(--accent); text-decoration: none; }
+
+.pub-card .pub-venue {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+.pub-card .pub-venue p { display: inline; margin: 0; }
+.pub-card .pub-venue em { font-style: italic; }
+
+.pub-card .pub-links {
+  display: inline-flex;
+  gap: 0.4rem;
+  margin-left: 0.55rem;
+  vertical-align: middle;
+}
+.pub-card .pub-link {
+  font-size: 0.74rem;
+  font-weight: 600;
+  line-height: 1.4;
+  padding: 0.04rem 0.55rem;
+  border: 1px solid var(--accent-border);
+  border-radius: 999px;
+  color: var(--accent);
+}
+.pub-card .pub-link:hover {
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Distinction badge — replaces the old star icons */
+.pub-card .pub-award {
+  display: inline-block;
+  margin-top: 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--award);
+  background: var(--award-soft);
+  border-radius: 999px;
+  padding: 0.14rem 0.7rem;
+}
+
+/* ---- Award cards ------------------------------------------------- */
+.award-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.award-card {
+  padding: 0.95rem 1.15rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  transition: box-shadow 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+}
+.award-card:hover {
+  border-color: var(--accent-border);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.07);
+  transform: translateY(-2px);
+}
+.award-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+.award-title {
+  font-size: 1.0rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text);
+}
+.award-title a { color: var(--text); }
+.award-title a:hover { color: var(--accent); text-decoration: none; }
+.award-date {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.award-desc {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-top: 0.3rem;
+}
+.award-desc p { margin: 0; }
+.award-subrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.35rem 0;
+}
+.award-subrow + .award-subrow { border-top: 1px dashed var(--rule); }
+.award-subtitle { font-weight: 600; color: var(--text); }
+@media (max-width: 575px) {
+  .award-row { flex-direction: column; gap: 0.1rem; }
+}
+
+/* ---- Easter egg overlay (click name 5×) ------------------------- */
+#egg-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.62);
+  animation: egg-fade 0.2s ease;
+}
+@keyframes egg-fade { from { opacity: 0; } to { opacity: 1; } }
+.egg-card {
+  position: relative;
+  width: 92vw;
+  max-width: 680px;
+  background: var(--card-bg);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+.egg-card img { display: block; width: 100%; height: auto; }
+.egg-cap {
+  padding: 0.75rem 1rem;
+  text-align: center;
+  font-weight: 600;
+  color: var(--text);
+}
+.egg-close {
+  position: absolute;
+  top: 9px;
+  right: 11px;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.egg-close:hover { background: var(--accent); }
+
+/* ---- Talk cards -------------------------------------------------- */
+.talk-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.talk-card {
+  padding: 0.95rem 1.15rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  transition: box-shadow 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+}
+.talk-card:hover {
+  border-color: var(--accent-border);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.07);
+  transform: translateY(-2px);
+}
+.talk-title {
+  font-size: 1.0rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text);
+}
+/* A talk card that is itself a link to a YouTube video */
+.talk-video {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.talk-video:hover { text-decoration: none; }
+.talk-video:hover .talk-title { color: var(--accent); }
+.talk-thumb {
+  position: relative;
+  flex: none;
+  width: 168px;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+}
+.talk-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.talk-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff0033;            /* YouTube red */
+  font-size: 2.2rem;
+  line-height: 1;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+  transition: transform 0.15s ease;
+}
+.talk-video:hover .talk-play { transform: scale(1.12); }
+@media (max-width: 575px) {
+  .talk-video { flex-direction: column; align-items: stretch; }
+  .talk-thumb { width: 100%; }
+}
+
+/* ---- About / profile -------------------------------------------- */
+img.avatar { border-radius: 10px !important; }
+
+/* CV / contact buttons in the bio */
+.cv-button {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.6rem;
+  padding: 0.45rem 1.1rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #fff !important;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  transition: filter 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+.cv-button:hover { filter: brightness(1.08); text-decoration: none; }
+.cv-button-ghost {
+  color: var(--accent) !important;
+  background: transparent;
+}
+.cv-button-ghost:hover { background: var(--accent-soft); }
+
+/* ---- News (compact card list) ----------------------------------- */
+#news .news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+#news .news-item {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 0.85rem;
+  align-items: start;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  background: var(--card-bg);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+#news .news-date {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  padding-top: 0.05rem;
+}
+@media (max-width: 575px) {
+  #news .news-item { grid-template-columns: 1fr; gap: 0.2rem; }
+}
+
+/* ---- Awards section: tidy the markdown entries ------------------- */
+#awards .article-style i { color: var(--accent); }

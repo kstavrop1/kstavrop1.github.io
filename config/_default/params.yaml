@@ -18,7 +18,7 @@ marketing:
     site_type: Person
     local_business_type: ''
     org_name: 'University of Texas at Austin'
-    description: 'Academic resume of Konstantinos Stavropoulos.'
+    description: 'Konstantinos (Kostas) Stavropoulos — Ph.D. candidate at UT Austin working on reliable machine learning and computational learning theory.'
     twitter: ''
   analytics:
     google_analytics: ''
@@ -103,9 +103,6 @@ features:
 # Extensions
 
 extensions:
-  cms:
-    branch: main
-    local_backend: false
   academicons:
     enable: true
 

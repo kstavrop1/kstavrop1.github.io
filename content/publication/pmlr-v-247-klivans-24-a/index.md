@@ -1,6 +1,7 @@
 ---
-title: Testable Learning with Distribution Shift
+title: 'Testable Learning with Distribution Shift'
 date: '2024-06-28'
+rank: 16
 draft: false
 publishDate: '2024-08-12T19:48:58.161640Z'
 authors:
@@ -37,10 +38,11 @@ abstract: '  We revisit the fundamental problem of learning with distribution sh
   factors, as well as a separation showing that realizable learning in our model is
   incomparable to (ordinary) agnostic learning.'
 featured: true
-publication: '**COLT 2024**'
-url_pdf: https://proceedings.mlr.press/v247/klivans24a/klivans24a.pdf
+categories:
+- Learning with Distribution Shift
+publication: '*COLT 2024*'
 links:
 - name: URL
-  url: https://proceedings.mlr.press/v247/klivans24a.html
+  url: https://arxiv.org/abs/2311.15142
 ---
 

@@ -1,0 +1,24 @@
+{{/*
+  Local override of the theme's analytics partial.
+
+  Hugo >= 0.120 removed `site.GoogleAnalytics`, which the bundled
+  blox-seo module still references — that caused the build to fail with:
+    "can't evaluate field GoogleAnalytics in type interface {}"
+
+  This version uses the modern config API and renders nothing when
+  Google Analytics is not configured (which is the current setup).
+  To enable GA, set `marketing.analytics.google_analytics` in
+  config/_default/params.yaml (or `services.googleAnalytics.ID` in hugo.yaml).
+*/ -}}
+{{- $id := "" -}}
+{{- with site.Config.Services.GoogleAnalytics.ID }}{{ $id = . }}{{ end -}}
+{{- with site.Params.marketing }}{{ with .analytics }}{{ with .google_analytics }}{{ $id = . }}{{ end }}{{ end }}{{ end -}}
+{{- with $id }}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ . }}');
+</script>
+{{- end -}}

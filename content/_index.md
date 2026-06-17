@@ -42,6 +42,31 @@ sections:
       title: <span style="font-size:24px;">About me</span>
       # Choose a user profile to display (a folder name within `content/authors/`)
       username: admin
+  # =====================================================================
+  # NEWS  —  to add an item, copy one `<div class="news-item">...</div>` line,
+  # paste it at the TOP of the list (newest first), and edit the date + text.
+  # =====================================================================
+  - block: markdown
+    id: news
+    content:
+      title: <span style="font-size:24px;">News</span>
+      subtitle: ''
+      text: '
+      <div class="news-list">
+
+      <div class="news-item"><span class="news-date">Fall 2026</span><span class="news-body">I will join the School of Mathematics at the <a href="https://www.ias.edu/">Institute for Advanced Study</a> as a Postdoctoral Member.</span></div>
+
+      <div class="news-item"><span class="news-date">June 29, 2026</span><span class="news-body">I am co-organizing a tutorial on <strong>Computational Foundations of Reliable Learning</strong> at COLT 2026, with Adam Klivans and Arsen Vasilyan.</span></div>
+
+      <div class="news-item"><span class="news-date">June 2026</span><span class="news-body">Our joint work received the <strong>Best Paper Award</strong> at the Symposium on Foundations of Responsible Computing (FORC) 2026.</span></div>
+
+      <div class="news-item"><span class="news-date">December 2025</span><span class="news-body">Our joint work received the <strong>Best Paper Award</strong> at the <a href="https://reliablemlworkshop.github.io">Reliable ML Workshop</a> at NeurIPS 2025.</span></div>
+
+      </div>
+      '
+    design:
+      view: compact
+      columns: '2'
   # - block: skills
   #   content:
   #     title: Skills
@@ -85,37 +110,29 @@ sections:
   #         description: Taught electronic engineering and researched semiconductor physics.
   #   design:
   #     columns: '2'
+  # =====================================================================
+  # PUBLICATIONS  —  rendered by layouts/partials/blocks/collection.html.
+  #   "Selected" groups featured papers (featured: true) by research area;
+  #   the area is each paper's first `categories:` value in its index.md.
+  #   "All" lists every paper by date: Published, then Preprints.
+  #   Edit the area list inside collection.html to add/rename areas.
+  # =====================================================================
   - block: collection
-    id: conference-publications
+    id: publications
     content:
-      count: 0
-      title: <span style="font-size:24px;">Publications</span> <br><span style="font-size:22px;">(alphabetical author order)</span>
-      # text: |-
-      #   {{% callout note %}}
-      #   Quickly discover relevant content by [filtering publications](./publication/).
-      #   {{% /callout %}}
-      filters:
-        folders:
-          - publication
-        featured_only: true
+      title: <span style="font-size:24px;">Publications</span>
     design:
       columns: '2'
-      view: citation
+  # =====================================================================
+  # TALKS  —  edit data/talks.yaml.  Set `enable: false` there to hide this
+  #   whole section (heading included).
+  # =====================================================================
   - block: collection
-    id: manuscripts
+    id: talks
     content:
-      title: <span style="font-size:24px;">Manuscripts</span>
-      # text: |-
-      #   {{% callout note %}}
-      #   Quickly discover relevant content by [filtering publications](./publication/).
-      #   {{% /callout %}}
-      filters:
-        folders:
-          - publication
-        exclude_featured: true
+      kind: talks
     design:
       columns: '2'
-      view: citation
   # - block: accomplishments
   #   id: awards
   #   content:
@@ -156,48 +173,28 @@ sections:
   #         url: ''
   #   design:
   #     columns: '1'
-  - block: markdown
+  # =====================================================================
+  # AWARDS  —  cards with a Selected / More toggle.
+  #   Edit the entries (and the `selected:` flag) in data/awards.yaml.
+  #   Rendered by layouts/partials/blocks/collection.html (kind: awards).
+  # =====================================================================
+  - block: collection
     id: awards
     content:
-      title: <span style="font-size:24px;">Awards and Achievements</span>
-      subtitle: ''
-      text: '
-      <span style="font-size:22px;">&nbsp;<i class="fa-solid fa-award"></i></span>&nbsp;&nbsp;<span style="font-size:20px;">**Best paper award at Reliable ML Workshop @ NeurIPS 2025**</span> <br> <div style="font-size:13px;">Our paper on *Testing Noise Assumptions of Learning Algorithms* won the best paper award at the [Reliable ML Workshop @ NeurIPS 2025](https://reliablemlworkshop.github.io).<div style="font-size:13px;color:grey;line-height: 2.0;">Dec 2025</div></div>
-
-      <br><br>
-
-      <span style="font-size:20px;"><i class="fa-solid fa-graduation-cap"></i></span>&nbsp;&nbsp;<span style="font-size:20px;">**2025 Apple Scholars in AI/ML PhD fellowship**</span> <br> <div style="font-size:13px;line-height: 1.6;"> I was selected as an [Apple Scholar in AI/ML](https://machinelearning.apple.com/updates/apple-scholars-aiml-2025).<div style="font-size:13px;color:grey;line-height: 2.6;"> 2025</div></div>
-
-      <br><br>
-
-      <span style="font-size:22px;">&nbsp;<i class="fa-solid fa-award"></i></span>&nbsp;&nbsp;<span style="font-size:20px;">**Best paper award at Conference on Learning Theory (COLT) 2024**</span> <br> <div style="font-size:13px;">Our paper on *Smoothed Analysis for Learning Concepts with Low Intrinsic Dimension* won the best paper award at COLT.<div style="font-size:13px;color:grey;line-height: 2.0;">Jun 2024</div></div>
-
-      <br><br>
-
-      <span style="font-size:20px;"><i class="fa-solid fa-person-chalkboard"></i></span>&nbsp;&nbsp;<span style="font-size:20px;">**Oral presentations at NeurIPS 2022 and 2023**</span> <br> <div style="font-size:13px;line-height: 1.6;">Our paper *Tester-Learners for Halfspaces: Universal Algorithms* was selected for oral presentation at NeurIPS 2023 ([top 0.54%](https://papercopilot.com/statistics/neurips-statistics/) of all submissions). In NeurIPS 2022, the paper *Learning and Covering Sums of Independent Random Variables with Unbounded Support* was selected for oral presentation as well ([top 1.76%](https://papercopilot.com/statistics/neurips-statistics/) of all submissions).<div style="font-size:13px;color:grey;line-height: 2.6;"> Dec 2022, 2023</div></div>
-
-      <br><br>
-
-      <span style="font-size:20px;"><i class="fa-solid fa-graduation-cap"></i></span>&nbsp;&nbsp;<span style="font-size:20px;">**Scholarships from Bodossaki and Leventis Foundations and scholarship award from the Hellenic Professional Society of Texas**</span> <br> <div style="font-size:13px;line-height: 1.6;">My Ph.D. studies are generously supported by scholarships from [Bodossaki](https://www.bodossaki.gr/en/our-initiatives/scholarships/) and [Leventis](https://www.leventisfoundation.org/educational-grants) foundations. In, May 2022, I received a scholarship award from [HPST](https://hpst.org/) in recognition of academic excellence.<div style="font-size:13px;color:grey;line-height: 2.6;"> Sep 2022 - Aug 2025, May 2022</div></div>
-
-      <br><br>
-
-      <span style="font-size:22px;">&nbsp;<i class="fa-solid fa-award"></i></span>&nbsp;&nbsp;<span style="font-size:20px;">**Award from State Scholarships Foundation and "Thomaideio" Award from NTUA**</span> <br> <div style="font-size:13px;line-height: 1.6;">Upon graduating from the [ECE department of NTUA](https://www.ece.ntua.gr/en), I received the Award of Excellence from the [State Scholarships Foundation](https://www.iky.gr/) of Greece for graduating first in my cohort within the nominal period of studies. During my studies, I was awarded for having the highest GPA among all undergraduate students of the ECE department during the academic year 2018-2019.<div style="font-size:13px;color:grey;line-height: 2.6;"> 2019, 2020</div></div>
-      '
+      title: <span style="font-size:24px;">Awards &amp; Honors</span>
+      kind: awards
     design:
-      # Choose a layout view
-      view: compact
       columns: '2'
-  # - block: markdown
-  #   id: reviewing
-  #   content:
-  #     title: <span style="font-size:24px;">Reviewing</span>
-  #     subtitle: ''
-  #     text: '<span style="font-size:26px;"><span style="font-size:18px;">COLT 2025, ICLR 2024, ICML 2024, NeurIPS 2023</span></span>'
-  #   design:
-  #     # Choose a layout view
-  #     view: compact
-  #     columns: '2'
+  # =====================================================================
+  # SERVICE & TEACHING  —  edit data/service.yaml.  Set `enable: false`
+  #   there to hide this whole section (heading included).
+  # =====================================================================
+  - block: collection
+    id: service
+    content:
+      kind: service
+    design:
+      columns: '2'
   # - block: collection
   #   id: awards2
   #   content:

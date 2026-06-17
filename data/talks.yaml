@@ -1,0 +1,14 @@
+# Recorded talks shown on the homepage (each links to its YouTube video).
+#
+#   enable: false  ->  hides the whole Talks section (heading included).
+#   Flip to `true` once you have a few videos to list.
+#
+# Add an entry per recorded talk:
+#   - title: Talk title
+#     youtube: https://youtu.be/VIDEO_ID
+
+enable: false
+
+items:
+  - title: Efficient Learning Algorithms under Contamination
+    youtube: https://youtu.be/2ldOVPLjcLw?si=iqvHkjRbttKR1UKd

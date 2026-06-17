@@ -1,0 +1,22 @@
+{{/*
+  Renders a single publication card.
+  Call as: {{ partial "pub_card.html" (dict "page" $page "me" $me) }}
+  Title links to the paper's canonical external URL (arXiv abs / proceedings).
+*/}}
+{{ $p := .page }}
+{{ $me := .me }}
+{{ $abs := "" }}
+{{ range $p.Params.links }}{{ if eq .name "URL" }}{{ $abs = .url }}{{ end }}{{ end }}
+{{ if not $abs }}{{ with $p.Params.url_pdf }}{{ $abs = . }}{{ end }}{{ end }}
+<div class="pub-card">
+  {{ with $p.Params.authors }}
+  {{ $names := slice }}
+  {{ range . }}{{ if eq . "admin" }}{{ $names = $names | append (printf "<span class=\"pub-me\">%s</span>" $me) }}{{ else }}{{ $names = $names | append . }}{{ end }}{{ end }}
+  <div class="pub-authors">{{ delimit $names ", " | safeHTML }}</div>
+  {{ end }}
+  <div class="pub-title">{{ if $abs }}<a href="{{ $abs }}" target="_blank" rel="noopener">{{ $p.Title }}</a>{{ else }}{{ $p.Title }}{{ end }}</div>
+  <div class="pub-venue">
+    {{ with $p.Params.publication }}{{ . | markdownify }}{{ end }}
+  </div>
+  {{ with $p.Params.award }}<div class="pub-award">{{ . }}</div>{{ end }}
+</div>

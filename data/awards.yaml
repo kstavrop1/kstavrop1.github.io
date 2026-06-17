@@ -1,0 +1,61 @@
+# Awards & achievements shown on the homepage.
+#   selected: true  -> appears in the "Selected" tab (highlights)
+#   every item      -> appears in the "More" tab
+# Order top-to-bottom = order shown. Markdown links are allowed in `description`.
+# Note: paper-specific distinctions (best paper, spotlight, oral) live on the
+#       papers themselves via the `award:` field, not here.
+# (This file is managed by scripts/editor.py, but is safe to hand-edit too.)
+
+- title: "Best Paper Award at the Symposium on the Foundations of Responsible Computing (FORC)"
+  date: '2026'
+  selected: true
+  description: "Awarded for joint work on *The Importance of Being Smoothly Calibrated*."
+
+- title: "Best Paper Award at Reliable ML Workshop @ NeurIPS"
+  date: '2025'
+  selected: true
+  description: "Awarded for joint work on *Testing Noise Assumptions of Learning Algorithms*."
+
+- title: "Dean's Prestigious Fellowship Supplement, UT Austin"
+  date: '2025'
+  selected: false
+  description: "Awarded by the UT Austin Graduate School."
+
+- title: "Apple Scholars in AI/ML PhD Fellowship"
+  date: '2025'
+  selected: true
+  url: https://machinelearning.apple.com/updates/apple-scholars-aiml-2025
+  description: "Selected as an Apple Scholar in AI/ML."
+
+- title: "Best Paper Award at the Conference on Learning Theory (COLT)"
+  date: '2024'
+  selected: true
+  description: "Awarded for joint work on *Smoothed Analysis for Learning Concepts with Low Intrinsic Dimension*."
+
+- title: "Bodossaki & Leventis Scholarships"
+  date: '2022 – 2025'
+  selected: true
+  description: "My Ph.D. studies were generously supported by scholarships from the [Bodossaki](https://www.bodossaki.gr/en/our-initiatives/scholarships/) and [Leventis](https://www.leventisfoundation.org/educational-grants) foundations."
+
+- title: "Scholarship Award, Hellenic Professional Society of Texas"
+  date: '2022'
+  selected: false
+  url: https://hpst.org/
+  description: "Awarded in recognition of academic excellence."
+
+- title: "Award of Excellence, State Scholarships Foundation (IKY)"
+  date: '2020'
+  selected: true
+  url: https://www.iky.gr/en
+  description: "Awarded by the State Scholarships Foundation of Greece for ranking first among students in my cohort who completed the [ECE degree at NTUA](https://www.ece.ntua.gr/en/) within the nominal period of studies."
+
+- title: "Thomaideio Award, NTUA"
+  date: '2019'
+  selected: false
+  url: https://www.ece.ntua.gr/en
+  description: "For the highest GPA among all undergraduate students in the [ECE department of NTUA](https://www.ece.ntua.gr/en) during the 2018–2019 academic year."
+
+- title: "\"The Great Moment for Education\" Award, Eurobank"
+  date: '2015'
+  selected: false
+  description: "Awarded for top performance in the national university entrance examinations."

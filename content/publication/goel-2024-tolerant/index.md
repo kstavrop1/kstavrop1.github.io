@@ -1,6 +1,7 @@
 ---
 title: Tolerant Algorithms for Learning with Arbitrary Covariate Shift
 date: '2024-12-07'
+rank: 11
 draft: false
 publishDate: '2024-08-12T19:47:13.850512Z'
 authors:
@@ -14,7 +15,10 @@ abstract: 'We study the problem of learning under arbitrary distribution shift, 
 
 We address both these challenges for natural function classes, including intersections of halfspaces and decision trees, and standard training distributions, including Gaussians. For PQ learning, we give efficient learning algorithms, while for TDS learning, our algorithms can tolerate moderate amounts of distribution shift. At the core of our approach is an improved analysis of spectral outlier-removal techniques from learning with nasty noise. Our analysis can (1) handle arbitrarily large fraction of outliers, which is crucial for handling arbitrary distribution shifts, and (2) obtain stronger bounds on polynomial moments of the distribution after outlier removal, yielding new insights into polynomial regression under distribution shifts. Lastly, our techniques lead to novel results for tolerant testable learning [RV23], and learning with nasty noise.'
 featured: true
-publication: '**NeurIPS 2024** <span style="font-size:15px;"><i class="fa-solid fa-star"></i></span> ***Spotlight***'
+award: 'Spotlight · NeurIPS 2024'
+categories:
+- Learning with Distribution Shift
+publication: '*NeurIPS 2024*'
 url_pdf: https://arxiv.org/pdf/2406.02742
 links:
 - name: URL

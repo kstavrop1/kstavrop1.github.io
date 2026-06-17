@@ -1,0 +1,37 @@
+# Research areas for the "Selected" publications view.
+#   - `title` MUST match the `categories:` value used on the papers.
+#   - `description` is a 2-3 sentence blurb shown above the collapsible list.
+#   Order here = display order. Areas with no published papers are skipped.
+
+- title: Learning with Distribution Shift
+  description: >-
+    Classical learning formulations assume train and test data come from the same
+    distribution, which rarely holds in practice. I design efficient algorithms
+    that provably succeed under distribution shift, including tolerant and
+    testable guarantees that certify when their output can be trusted.
+
+- title: Learning from Noisy or Corrupted Data 
+  description: >-
+    Training datasets are often contaminated by naturally occurring or adversarial 
+    corruptions. I develop efficient algorithms that learn with provable guarantees 
+    under challenging noise models, ranging from Massart noise and adversarial label 
+    noise to nasty noise and heavy additive contamination.
+
+- title: Testable Learning
+  description: >-
+    The testable learning framework asks an algorithm to verify, rather than
+    assume, that its distributional assumptions hold. I build efficient
+    tester-learners that either return a classifier with a certificate of
+    near-optimality or reject the data.
+
+- title: Beyond Worst-Case Models
+  description: >-
+    Worst-case analysis can be overly pessimistic about what is learnable. I use
+    beyond-worst-case lenses, such as smoothed or average-case analysis, to explain why learning
+    remains tractable on realistic, mildly perturbed instances.
+
+- title: Calibration and Real-Valued Prediction
+  description: >-
+    Beyond binary classification, reliable predictions require well-calibrated
+    probabilities and accurate real-valued outputs. I study how to verify or achieve such properties
+    efficiently, with applications to decision making and omniprediction.

@@ -19,11 +19,10 @@ removePathAccents: true
 ## ADVANCED
 ############################
 
-googleAnalytics: ""
 enableGitInfo: false
 summaryLength: 30
-pagination: 
-  paperSize: 10
+pagination:
+  pagerSize: 10
 enableEmoji: true
 enableRobotsTXT: true
 footnotereturnlinkcontents: <sup>^</sup>

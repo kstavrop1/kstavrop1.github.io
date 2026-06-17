@@ -1,0 +1,241 @@
+{{/*
+  Local override of the Hugo Blox "collection" block.
+
+  For publications & awards the block sets a `title`, so the theme's section
+  wrapper renders the heading (left column) and this partial outputs only the
+  right column. For talks & service the block sets NO title, so this partial
+  renders both the heading and the content — which lets us hide the entire
+  section (heading included) via the `enable:` flag in the data file.
+
+  Kinds (content.kind):
+    "publications" (default) — Selected (by area) / All (by date) toggle.
+    "awards"                 — Selected / More toggle over data/awards.yaml.
+    "talks"                  — data/talks.yaml  (enable: true/false).
+    "service"                — data/service.yaml (enable: true/false).
+*/}}
+
+{{ $block := .wcBlock }}
+{{ $kind := $block.content.kind | default "publications" }}
+
+{{/* ===================== TALKS ===================== */}}
+{{ if eq $kind "talks" }}
+  {{ $t := site.Data.talks }}
+  {{ if $t.enable }}
+  <div class="section-heading col-12 col-lg-4 mb-3 mb-lg-0 d-flex flex-column align-items-center align-items-lg-start">
+    <h1 class="mb-0"><span style="font-size:24px;">Talks</span></h1>
+  </div>
+  <div class="col-12 col-lg-8">
+    <div class="talk-cards">
+      {{ range $t.items }}
+      {{/* Extract the YouTube video id from common URL forms. */}}
+      {{ $u := .youtube }}
+      {{ $id := "" }}
+      {{ if strings.Contains $u "youtu.be/" }}
+        {{ $id = index (split (index (split $u "youtu.be/") 1) "?") 0 }}
+      {{ else if strings.Contains $u "v=" }}
+        {{ $id = index (split (index (split $u "v=") 1) "&") 0 }}
+      {{ else if strings.Contains $u "embed/" }}
+        {{ $id = index (split (index (split $u "embed/") 1) "?") 0 }}
+      {{ end }}
+      <a class="talk-card talk-video" href="{{ .youtube }}" target="_blank" rel="noopener">
+        {{ with $id }}
+        <span class="talk-thumb">
+          <img loading="lazy" src="https://img.youtube.com/vi/{{ . }}/hqdefault.jpg" alt="">
+          <span class="talk-play" aria-hidden="true"><i class="fa-brands fa-youtube"></i></span>
+        </span>
+        {{ end }}
+        <span class="talk-title">{{ .title }}</span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+  {{ else }}<style>#talks{display:none !important}#navbar-main .nav-item:has(> a[data-target="#talks"]){display:none !important}</style>{{ end }}
+
+{{/* ===================== SERVICE & TEACHING ===================== */}}
+{{ else if eq $kind "service" }}
+  {{ $s := site.Data.service }}
+  {{ if $s.enable }}
+  <div class="section-heading col-12 col-lg-4 mb-3 mb-lg-0 d-flex flex-column align-items-center align-items-lg-start">
+    <h1 class="mb-0"><span style="font-size:24px;">Service</span></h1>
+  </div>
+  <div class="col-12 col-lg-8">
+    <div class="award-cards">
+      {{/* Free-form cards: one box each (e.g. a single tutorial or talk you organize). */}}
+      {{ range $s.cards }}
+      <div class="award-card">
+        <div class="award-row">
+          <div class="award-title">{{ .title }}</div>
+          {{ with .date }}<div class="award-date">{{ . }}</div>{{ end }}
+        </div>
+        {{ with .body }}<div class="award-desc">{{ . | markdownify }}</div>{{ end }}
+      </div>
+      {{ end }}
+      {{ with $s.reviewing }}
+      <div class="award-card">
+        <div class="award-row"><div class="award-title">Reviewing &amp; Subreviewing</div></div>
+        <div class="award-desc">{{ . }}</div>
+      </div>
+      {{ end }}
+      {{ with $s.tutorials }}
+      <div class="award-card">
+        <div class="award-row"><div class="award-title">Tutorials &amp; Workshops</div></div>
+        {{ range . }}
+        <div class="award-subrow">
+          <div>
+            <span class="award-subtitle">{{ .title }}</span>
+            {{ with .detail }}<div class="award-desc">{{ . | markdownify }}</div>{{ end }}
+          </div>
+          {{ with .date }}<div class="award-date">{{ . }}</div>{{ end }}
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+  {{ else }}<style>#{{ $block.id | default "service" }}{display:none !important}</style>{{ end }}
+
+{{/* ===================== AWARDS ===================== */}}
+{{ else if eq $kind "awards" }}
+  <div class="col-12 col-lg-8">
+    <div class="pub-browser">
+      <div class="pub-toggle" role="tablist" aria-label="Awards view">
+        <button type="button" class="pub-tab is-active" data-view="selected">Selected</button>
+        <button type="button" class="pub-tab" data-view="more">More</button>
+      </div>
+      <div class="pub-view" data-view="selected">
+        <div class="award-cards">
+          {{ range where site.Data.awards "selected" true }}{{ partial "award_card.html" . }}{{ end }}
+        </div>
+      </div>
+      <div class="pub-view is-hidden" data-view="more">
+        <div class="award-cards">
+          {{ range site.Data.awards }}{{ partial "award_card.html" . }}{{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+{{/* ===================== PUBLICATIONS ===================== */}}
+{{ else }}
+  {{ $me := "" }}
+  {{ with site.GetPage "/authors/admin" }}{{ $me = .Title }}{{ end }}
+  {{ $all := where site.RegularPages "Section" "publication" }}
+  <div class="col-12 col-lg-8">
+    <div class="pub-note mb-3">Following the convention in theoretical computer science, authors are listed in alphabetical order.</div>
+    <div class="pub-browser">
+      <div class="pub-toggle" role="tablist" aria-label="Publication view">
+        <button type="button" class="pub-tab is-active" data-view="selected">Selected</button>
+        <button type="button" class="pub-tab" data-view="all">All</button>
+      </div>
+      <div class="pub-view" data-view="selected">
+        {{ range site.Data.areas }}
+          {{ $area := .title }}
+          {{ $desc := .description }}
+          {{ $papers := sort (sort (where (where $all "Params.featured" true) "Params.categories" "intersect" (slice $area)) "Date" "desc") "Params.rank" "asc" }}
+          {{ with $papers }}
+          <div class="pub-cat">
+            <h3 class="pub-area">{{ $area }}</h3>
+            {{ with $desc }}<p class="pub-cat-desc">{{ . | markdownify }}</p>{{ end }}
+            <details class="pub-cat-details">
+              <summary class="pub-cat-toggle">Selected papers ({{ len $papers }})</summary>
+              <div class="pub-cards">
+                {{ range $papers }}{{ partial "pub_card.html" (dict "page" . "me" $me) }}{{ end }}
+              </div>
+            </details>
+          </div>
+          {{ end }}
+        {{ end }}
+      </div>
+      <div class="pub-view is-hidden" data-view="all">
+        {{ $pub := sort (sort (where $all "Params.featured" true) "Date" "desc") "Params.rank" "asc" }}
+        {{ $pre := sort (sort (where $all "Params.featured" "!=" true) "Date" "desc") "Params.rank" "asc" }}
+        {{ with $pub }}
+        <h3 class="pub-area">Published</h3>
+        <div class="pub-cards">{{ range . }}{{ partial "pub_card.html" (dict "page" . "me" $me) }}{{ end }}</div>
+        {{ end }}
+        {{ with $pre }}
+        <h3 class="pub-area">Preprints &amp; Work in Progress</h3>
+        <div class="pub-cards">{{ range . }}{{ partial "pub_card.html" (dict "page" . "me" $me) }}{{ end }}</div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+{{ end }}
+
+{{ if or (eq $kind "publications") (eq $kind "awards") }}
+<script>
+(function(){
+  function initTabs(){
+    document.querySelectorAll('.pub-browser').forEach(function(b){
+      if (b.dataset.tabInit) return;
+      b.dataset.tabInit = '1';
+      var tabs = b.querySelectorAll('.pub-tab');
+      var views = b.querySelectorAll('.pub-view');
+      tabs.forEach(function(t){
+        t.addEventListener('click', function(){
+          var v = t.getAttribute('data-view');
+          tabs.forEach(function(x){ x.classList.toggle('is-active', x === t); });
+          views.forEach(function(view){ view.classList.toggle('is-hidden', view.getAttribute('data-view') !== v); });
+        });
+      });
+    });
+  }
+  /* Re-stripe alternating section backgrounds among the VISIBLE sections, so a
+     hidden section (e.g. Talks turned off) doesn't break the alternation. */
+  function stripeSections(){
+    if (document.body.dataset.secStriped) return;
+    document.body.dataset.secStriped = '1';
+    var secs = Array.prototype.slice.call(document.querySelectorAll('section.home-section'))
+      .filter(function(s){ return getComputedStyle(s).display !== 'none'; });
+    secs.forEach(function(s, i){
+      s.classList.remove('sec-odd', 'sec-even');
+      s.classList.add(i % 2 === 0 ? 'sec-odd' : 'sec-even');
+    });
+    /* Give the footer the SAME parity class as the last visible section, so its
+       background comes from the CSS variables and follows light/dark mode. */
+    if (secs.length) {
+      var lastClass = (secs.length - 1) % 2 === 0 ? 'sec-odd' : 'sec-even';
+      var f = document.querySelector('.page-footer');
+      if (f) { f.classList.remove('sec-odd', 'sec-even'); f.classList.add(lastClass); }
+    }
+  }
+  /* Easter egg: click the name 5× (quickly) to reveal a photo of Greece. */
+  function showEgg(){
+    if (document.getElementById('egg-overlay')) return;
+    var night = document.documentElement.classList.contains('dark')
+             || document.body.classList.contains('dark');
+    var img = night ? '/uploads/greece-night.jpg' : '/uploads/greece.jpg';
+    var cap = night ? 'Καληνύχτα από την Ελλάδα! 🌙' : 'Καλημέρα από την Ελλάδα! 🇬🇷';
+    var o = document.createElement('div');
+    o.id = 'egg-overlay';
+    o.innerHTML = '<div class="egg-card">'
+      + '<img src="' + img + '" alt="A view of the Aegean, Greece">'
+      + '<div class="egg-cap">' + cap + '</div>'
+      + '<button class="egg-close" aria-label="Close">×</button>'
+      + '</div>';
+    document.body.appendChild(o);
+    function close(){ o.remove(); document.removeEventListener('keydown', onKey); }
+    function onKey(e){ if (e.key === 'Escape') close(); }
+    o.addEventListener('click', function(e){ if (e.target === o) close(); });
+    o.querySelector('.egg-close').addEventListener('click', close);
+    document.addEventListener('keydown', onKey);
+  }
+  function initEgg(){
+    if (document.body.dataset.eggInit) return;
+    var name = document.querySelector('.portrait-title h2');
+    if (!name) return;
+    document.body.dataset.eggInit = '1';
+    var clicks = 0, timer = null;
+    name.addEventListener('click', function(){
+      clicks++;
+      clearTimeout(timer);
+      timer = setTimeout(function(){ clicks = 0; }, 1500);
+      if (clicks >= 5){ clicks = 0; showEgg(); }
+    });
+  }
+  function init(){ initTabs(); stripeSections(); initEgg(); }
+  if (document.readyState !== 'loading') { init(); }
+  else { document.addEventListener('DOMContentLoaded', init); }
+})();
+</script>
+{{ end }}

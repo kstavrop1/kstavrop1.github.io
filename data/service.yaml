@@ -1,0 +1,24 @@
+# Service shown on the homepage.
+#   enable: false  ->  hides the whole Service section.
+
+enable: true
+
+# Free-form boxes shown under Service — each renders as its own card.
+# Use these for one-off items (a single tutorial, an organized session, etc.)
+# so you don't need a list with a single entry.
+#   - title: Card title
+#     date: 2026            # optional, shown on the right
+#     body: "Text. Markdown links are allowed."
+cards:
+  - title: Computational Foundations of Reliable Learning
+    date: 2026
+    body: "Tutorial at the Conference on Learning Theory (COLT), co-organized with Adam Klivans and Arsen Vasilyan."
+
+reviewing: 'COLT (2025, 2026), FOCS (2025, 2026), STOC 2026, ITCS 2026, NeurIPS (2023, 2026), ICLR 2024, ICML 2024, RANDOM 2026'
+
+# Tutorials / workshops list. When this has entries it shows as a single
+# "Tutorials & Workshops" card (good once you have a few). Leave empty to hide it.
+#   - title: Workshop / tutorial name
+#     detail: "Venue / co-organizers"   # optional second line
+#     date: 2026
+tutorials: []

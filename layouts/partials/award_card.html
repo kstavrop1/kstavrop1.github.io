@@ -1,0 +1,11 @@
+{{/*
+  Renders a single award card. Call as: {{ partial "award_card.html" $item }}
+  where $item is an entry from data/awards.yaml.
+*/}}
+<div class="award-card">
+  <div class="award-row">
+    <div class="award-title">{{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</div>
+    {{ with .date }}<div class="award-date">{{ . }}</div>{{ end }}
+  </div>
+  {{ with .description }}<div class="award-desc">{{ . | markdownify }}</div>{{ end }}
+</div>
