@@ -2,6 +2,8 @@ name: Deploy website to GitHub Pages
 
 env:
   WC_HUGO_VERSION: '0.124.1'
+  # Run all JavaScript actions on Node.js 24 (Node 20 is deprecated on runners).
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 on:
   # Trigger the workflow every time you push to the `main` branch
@@ -27,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           # Fetch history for Hugo's .GitInfo and .Lastmod
           fetch-depth: 0

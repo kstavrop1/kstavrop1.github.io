@@ -113,14 +113,26 @@ a:not(.btn):focus { color: var(--accent); }
 .dark .navbar .navbar-nav .nav-link.show,
 .dark .navbar .navbar-nav .show > .nav-link { color: var(--accent) !important; }
 
-.dropdown-item-active { color: var(--accent) !important; }
+/* `.active` is the class the theme puts on the currently-selected scheme
+   (Light/Dark/Auto). The theme colors it blue via `.navbar .dropdown-item.active`
+   (!important), which is MORE specific than a bare `.dropdown-item.active`, so we
+   must match that `.navbar …` specificity to win. */
+.navbar .dropdown-item-active,
+.navbar .dropdown-item.active { color: var(--accent) !important; background-color: var(--accent-soft) !important; }
 .dropdown-item:active { background-color: var(--accent) !important; color: #fff !important; }
 .dropdown-item:hover,
 .dropdown-item:focus { background-color: var(--accent-soft) !important; color: var(--text) !important; }
 .dark .dropdown-item { color: rgba(255, 255, 255, 0.82) !important; }
 .dark .dropdown-item:hover,
 .dark .dropdown-item:focus { background-color: var(--accent-soft) !important; color: #ffffff !important; }
-.dark .dropdown-item-active { color: var(--accent) !important; }
+.dark .navbar .dropdown-item-active,
+.dark .navbar .dropdown-item.active { color: var(--accent) !important; background-color: var(--accent-soft) !important; }
+
+/* Mobile menu hamburger (the three bars): the theme renders it blue. */
+.navbar-toggler { color: var(--accent) !important; border-color: var(--accent-border) !important; }
+.navbar-toggler .fas,
+.navbar-toggler i { color: var(--accent) !important; }
+.navbar-toggler:focus { box-shadow: none !important; }
 .navbar-light .navbar-brand:hover,
 .navbar-light .navbar-brand:focus,
 .navbar-light .navbar-text a,
@@ -130,6 +142,24 @@ a:not(.btn):focus { color: var(--accent); }
 .home-section {
   padding-top: 2.75rem;
   padding-bottom: 2.75rem;
+}
+
+/* ---- Scroll-reveal entrance motion ------------------------------- */
+/* Hidden state only applies when JS has added `.reveal-init` to <html> AND
+   the visitor hasn't asked for reduced motion — so content is never hidden
+   if JS is off or motion is disabled. The per-card delay (stagger) is set
+   inline by JS. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-init .reveal {
+    opacity: 0;
+    transform: translateY(9px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    will-change: opacity, transform;
+  }
+  .reveal-init .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* Collapse a section whose content row is empty — e.g. a Talks/Service
@@ -306,6 +336,31 @@ a:not(.btn):focus { color: var(--accent); }
   border-radius: 999px;
   padding: 0.14rem 0.7rem;
 }
+/* Best-Paper trophy: golden, shiny and 3D-ish. A multi-stop gold gradient
+   with a near-white gloss streak (~34%) gives the "shine"; the clip paints
+   it onto the glyph. Stacked drop-shadows fake an extruded bottom edge for
+   depth, and the last one adds a soft warm glow. `color` is the fallback
+   for browsers without background-clip: text. */
+.pub-card .pub-award .pub-award-icon {
+  margin-right: 0.26rem;
+  font-size: 1.06em;
+  vertical-align: -0.05em;
+  color: #e0a82e;
+  background: linear-gradient(155deg,
+    #fff7c8 0%,
+    #ffe07a 17%,
+    #ffffff 34%,
+    #f1b62f 49%,
+    #d9991f 73%,
+    #a86c10 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter:
+    drop-shadow(0 0.5px 0 #b5801c)
+    drop-shadow(0 1px 0.5px rgba(70, 45, 0, 0.45))
+    drop-shadow(0 0 2px rgba(255, 214, 110, 0.55));
+}
 
 /* ---- Award cards ------------------------------------------------- */
 .award-cards {
@@ -380,15 +435,32 @@ a:not(.btn):focus { color: var(--accent); }
 @keyframes egg-fade { from { opacity: 0; } to { opacity: 1; } }
 .egg-card {
   position: relative;
-  width: 92vw;
-  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: #{"min(92vw, 680px)"};
+  /* Never taller than the viewport (dvh handles mobile URL bars). */
+  max-height: calc(100vh - 3rem);
+  max-height: calc(100dvh - 3rem);
   background: var(--card-bg);
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
 }
-.egg-card img { display: block; width: 100%; height: auto; }
+.egg-card img {
+  display: block;
+  margin: 0 auto;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  /* Leave room for the caption bar + the overlay's padding so the whole
+     pop-up (close button at top, caption at bottom) stays on screen. */
+  max-height: calc(100vh - 6.5rem);
+  max-height: calc(100dvh - 6.5rem);
+  object-fit: contain;
+}
 .egg-cap {
+  flex: 0 0 auto;
   padding: 0.75rem 1rem;
   text-align: center;
   font-weight: 600;

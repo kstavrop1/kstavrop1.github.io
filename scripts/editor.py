@@ -237,7 +237,7 @@ def add_paper(data, me=DEFAULT_ME):
     elif status == "published":
         publication = "*Conference paper*"
     else:
-        publication = "*Under review*"
+        publication = "*Preprint*"
 
     today = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S.000000Z")
     # New papers get rank 0 so they appear at the top until reordered.
@@ -299,7 +299,7 @@ def edit_paper(data):
             fm = fm.rstrip("\n") + "\ncategories:\n- " + data["category"] + "\n"
     # venue
     if "venue" in data:
-        pub = "*%s*" % data["venue"].strip().strip("*").strip() if data["venue"].strip() else "*Under review*"
+        pub = "*%s*" % data["venue"].strip().strip("*").strip() if data["venue"].strip() else "*Preprint*"
         if re.search(r"(?m)^publication:.*$", fm):
             fm = re.sub(r"(?m)^publication:.*$", "publication: '%s'" % pub, fm, count=1)
         else:

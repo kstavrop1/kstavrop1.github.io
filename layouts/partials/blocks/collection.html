@@ -147,14 +147,27 @@
         {{ end }}
       </div>
       <div class="pub-view is-hidden" data-view="all">
-        {{ $pub := sort (sort (where $all "Params.featured" true) "Date" "desc") "Params.rank" "asc" }}
-        {{ $pre := sort (sort (where $all "Params.featured" "!=" true) "Date" "desc") "Params.rank" "asc" }}
-        {{ with $pub }}
-        <h3 class="pub-area">Published</h3>
+        {{/* Split by VENUE, not by `featured`: a paper with no real venue
+             (blank, "Preprint", or "Under review") is a preprint. Preprints
+             show first, then published papers. */}}
+        {{ $pre := slice }}
+        {{ $pubd := slice }}
+        {{ range $all }}
+          {{ $v := lower (trim (.Params.publication | default "") "* ") }}
+          {{ if or (eq $v "") (eq $v "preprint") (eq $v "under review") }}
+            {{ $pre = $pre | append . }}
+          {{ else }}
+            {{ $pubd = $pubd | append . }}
+          {{ end }}
+        {{ end }}
+        {{ $pre = sort (sort $pre "Date" "desc") "Params.rank" "asc" }}
+        {{ $pubd = sort (sort $pubd "Date" "desc") "Params.rank" "asc" }}
+        {{ with $pre }}
+        <h3 class="pub-area">Preprints</h3>
         <div class="pub-cards">{{ range . }}{{ partial "pub_card.html" (dict "page" . "me" $me) }}{{ end }}</div>
         {{ end }}
-        {{ with $pre }}
-        <h3 class="pub-area">Preprints &amp; Work in Progress</h3>
+        {{ with $pubd }}
+        <h3 class="pub-area">Published</h3>
         <div class="pub-cards">{{ range . }}{{ partial "pub_card.html" (dict "page" . "me" $me) }}{{ end }}</div>
         {{ end }}
       </div>
@@ -233,7 +246,44 @@
       if (clicks >= 5){ clicks = 0; showEgg(); }
     });
   }
-  function init(){ initTabs(); stripeSections(); initEgg(); }
+  /* Fade/slide each content card in as it scrolls into view (staggered). */
+  function initReveal(){
+    var root = document.documentElement;
+    if (root.dataset.revealInit) return;
+    if (!('IntersectionObserver' in window) ||
+        (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+    root.dataset.revealInit = '1';
+    root.classList.add('reveal-init');
+
+    var sel = '.pub-card, .award-card, .talk-card, #news .news-item';
+    var els = Array.prototype.slice.call(document.querySelectorAll(sel));
+    els.forEach(function(el){
+      el.classList.add('reveal');
+      /* Stagger by position among reveal-siblings in the same container. */
+      var n = 0, s = el.previousElementSibling;
+      while (s){ if (s.classList && s.classList.contains('reveal')) n++; s = s.previousElementSibling; }
+      el.style.transitionDelay = Math.min(n * 28, 140) + 'ms';
+    });
+
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    els.forEach(function(el){ io.observe(el); });
+
+    /* Cards hidden inside a collapsed <details> (the per-area "Selected
+       papers" lists) won't trigger the observer until opened — reveal them
+       immediately on open so they don't stay invisible. */
+    document.querySelectorAll('details.pub-cat-details').forEach(function(d){
+      d.addEventListener('toggle', function(){
+        if (d.open) d.querySelectorAll('.reveal:not(.is-visible)').forEach(function(el){
+          el.style.transitionDelay = '0ms'; el.classList.add('is-visible');
+        });
+      });
+    });
+  }
+  function init(){ initTabs(); stripeSections(); initEgg(); initReveal(); }
   if (document.readyState !== 'loading') { init(); }
   else { document.addEventListener('DOMContentLoaded', init); }
 })();

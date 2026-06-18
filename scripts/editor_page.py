@@ -138,7 +138,7 @@ PAGE = r"""<!DOCTYPE html>
           </select>
         </div>
       </div>
-      <label>Venue <span class="small muted">(e.g. NeurIPS 2025; leave blank for "Under review")</span></label>
+      <label>Venue <span class="small muted">(e.g. NeurIPS 2025; leave blank for "Preprint")</span></label>
       <input type="text" id="p-venue">
       <label>Distinction badge <span class="small muted">(optional, e.g. Spotlight &middot; NeurIPS 2025)</span></label>
       <input type="text" id="p-award">

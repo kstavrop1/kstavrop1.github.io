@@ -114,7 +114,7 @@ def build_index_md(meta, args):
     elif args.status == "published":
         publication = "*Conference paper*"
     else:
-        publication = "*Under review*"
+        publication = "*Preprint*"
 
     today = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S.000000Z")
 

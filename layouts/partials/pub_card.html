@@ -18,5 +18,5 @@
   <div class="pub-venue">
     {{ with $p.Params.publication }}{{ . | markdownify }}{{ end }}
   </div>
-  {{ with $p.Params.award }}<div class="pub-award">{{ . }}</div>{{ end }}
+  {{ with $p.Params.award }}<div class="pub-award">{{ if in (lower .) "best paper" }}<i class="fas fa-trophy pub-award-icon" aria-hidden="true"></i> {{ end }}{{ . }}</div>{{ end }}
 </div>
